@@ -11,7 +11,7 @@ class Limiter:
     # a request is allowed if the number of requests in the last T seconds is < N
     # “last T seconds” means: now - T < timestamp <= now
 
-    def add(self, user_id: int) -> bool:
+    def allow(self, user_id: int) -> bool:
         # check if the request is valid (using sliding window)
         user_data = self.repository.data.get(user_id, [])
         now = self.clock.now()
