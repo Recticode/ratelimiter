@@ -1,13 +1,18 @@
 import time
 
 class Clock:
-    def __init__(self):
-        pass
+    def now(self) -> int:
+        return int(time.time())
 
-    def current_time(self, actual:bool, timestamp=None):
-        if actual:
-            return time.time()
-        else:
-            if timestamp is None:
-                return 0
-            return timestamp
+class FakeClock:
+    def __init__(self, start_time: int=0):
+       self.time = start_time
+
+    def now(self) -> int:
+        return self.time
+
+    def set(self, new_time: int):
+        self.time = new_time
+
+    def advance(self, seconds: int):
+        self.time += seconds
