@@ -1,6 +1,5 @@
 import json
 import os
-from models import Request
 
 class Repository:
     def __init__(self):
@@ -19,7 +18,8 @@ class Repository:
         except json.JSONDecodeError:
             return {}
 
-    def add(self, request: Request):
-        # add to self.data
-        # save self.data onto json file
-        pass
+    def add(self, user_id, window: list[int]):
+        self.data[user_id] = window
+
+        with open(self.file_name, "w") as file:
+            json.dump(self.data, file)
