@@ -1,12 +1,12 @@
 from repository import Repository
-from clock import Clock
+from clock import Clock, FakeClock
 
 class Limiter:
-    def __init__(self, N: int, T: int):
+    def __init__(self, N: int, T: int, clock: Clock | FakeClock):
         self.repository = Repository()
         self.N = N
         self.T = T
-        self.clock = Clock()
+        self.clock = clock
 
     # a request is allowed if the number of requests in the last T seconds is < N
     # “last T seconds” means: now - T < timestamp <= now
