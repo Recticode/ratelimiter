@@ -1,11 +1,13 @@
 import time
 
 class Clock:
-    def __init__(self, actual: bool):
-        self.actual = actual
+    def __init__(self):
+        pass
 
-    def current_time(self):
-        if self.actual:
+    def current_time(self, actual:bool, timestamp=None):
+        if actual:
             return time.time()
         else:
-            return 0
+            if timestamp is None:
+                return 0
+            return timestamp
