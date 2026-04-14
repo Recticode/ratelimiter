@@ -1,6 +1,6 @@
 import typer
-from src.limiter import Limiter
-from src.clock import Clock
+from limiter import Limiter
+from clock import Clock
 
 app = typer.Typer()
 

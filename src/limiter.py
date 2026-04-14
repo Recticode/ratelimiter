@@ -1,5 +1,5 @@
 from repository import Repository
-from src.clock import Clock, FakeClock
+from clock import Clock, FakeClock
 
 class Limiter:
     def __init__(self, N: int, T: int, clock: Clock | FakeClock):
