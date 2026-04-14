@@ -3,7 +3,7 @@ import os
 
 class Repository:
     def __init__(self):
-        self.file_name = "data.json"
+        self.file_name = "../data.json"
         self.data = self._load()
 
     def _load(self):
